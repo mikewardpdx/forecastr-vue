@@ -1,12 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>Coming soon...</h1>
+    <SearchField />
   </div>
 </template>
 
 <script>
+import SearchField from '@/components/SearchField.vue';
+
 export default {
   name: 'app',
+  components: {
+    SearchField,
+  },
 };
 </script>
