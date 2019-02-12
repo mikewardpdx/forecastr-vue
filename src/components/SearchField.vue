@@ -5,15 +5,16 @@
       id="location-input"
       type="text"
       placeholder="Location?"
-      @keydown.enter="searchLocation"
+      @keydown.enter="geocodeSearch(searchString)"
     />
-    <button @click="searchLocation">search</button>
+    <button @click="geocodeSearch(searchString)">search</button>
     <p>{{ locale }}</p>
+    <p>Latitude: {{ latitude }}, Longitude: {{ longitude }}</p>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'SearchField',
@@ -23,12 +24,10 @@ export default {
     };
   },
   computed: {
-    ...mapState('location', ['locale']),
+    ...mapState('location', ['locale', 'latitude', 'longitude']),
   },
   methods: {
-    searchLocation() {
-      // console.log(this.searchString);
-    },
+    ...mapActions('location', ['geocodeSearch']),
   },
 };
 </script>
