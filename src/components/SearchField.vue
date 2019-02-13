@@ -8,8 +8,13 @@
       @keydown.enter="geocodeSearch(searchString)"
     />
     <button @click="geocodeSearch(searchString)">search</button>
-    <p>{{ locale }}</p>
-    <p>Latitude: {{ latitude }}, Longitude: {{ longitude }}</p>
+    <div>
+      {{ currently.apparentTemperature }}&deg;F
+    </div>
+    <div>
+      <p>{{ locale }}</p>
+      <p>Latitude: {{ geometry.latitude }}, Longitude: {{ geometry.longitude }}</p>
+    </div>
   </div>
 </template>
 
@@ -24,7 +29,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('location', ['locale', 'latitude', 'longitude']),
+    ...mapState('location', ['locale', 'geometry']),
+    ...mapState('forecast', ['currently']),
   },
   methods: {
     ...mapActions('location', ['geocodeSearch']),
