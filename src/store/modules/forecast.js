@@ -4,7 +4,8 @@ import Axios from 'axios';
 
 const SET_FORECAST = 'SET_FORECAST';
 
-const baseUrl = '/darksky';
+const baseUrl = process.env.NODE_ENV
+  === 'production' ? 'https://api.darksky.net/forecast' : '/darksky';
 const darkSkyApiKey = process.env.VUE_APP_DARK_SKY_API_KEY;
 
 export default {
