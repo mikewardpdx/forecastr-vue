@@ -5,7 +5,7 @@ import Axios from 'axios';
 const SET_FORECAST = 'SET_FORECAST';
 
 const baseUrl = '/darksky';
-const darkSkyApiKey = '72cb4b66f2077387dafc4eeff3ac709e';
+const darkSkyApiKey = process.env.VUE_APP_DARK_SKY_API_KEY;
 
 export default {
   namespaced: true,

@@ -3,7 +3,7 @@
 import Axios from 'axios';
 
 const baseUrl = 'https://api.mapbox.com/geocoding/v5/mapbox.places';
-const apiKey = 'pk.eyJ1IjoibWlrZXdhcmRwZHgiLCJhIjoiY2psemZtbGh6MTR2ajNvbzU2ZmxmMzN3bSJ9.C2kOMKYaiRFfalurIa0tmA';
+const apiKey = process.env.VUE_APP_MAPBOX_API_KEY;
 
 const SET_LOCALE = 'SET_LOCALE';
 
