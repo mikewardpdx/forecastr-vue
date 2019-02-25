@@ -1,10 +1,12 @@
 const Axios = require('axios');
 
 const baseUrl = 'https://api.darksky.net/forecast';
-const darkSkyApiKey = '72cb4b66f2077387dafc4eeff3ac709e';
+const darkSkyApiKey = process.env.VUE_APP_DARK_SKY_API_KEY;
 
 exports.handler = (event, context, callback) => {
-  Axios.get(`${baseUrl}/${darkSkyApiKey}/0,0`)
+  const parsedBody = JSON.parse(event.body);
+
+  Axios.get(`${baseUrl}/${darkSkyApiKey}/${parsedBody.latitude},${parsedBody.longitude}`)
     .then((res) => {
       callback(null, {
         statusCode: 200,

@@ -4,10 +4,6 @@ import Axios from 'axios';
 
 const SET_FORECAST = 'SET_FORECAST';
 
-const baseUrl = process.env.NODE_ENV
-  === 'production' ? 'https://api.darksky.net/forecast' : '/darksky';
-const darkSkyApiKey = process.env.VUE_APP_DARK_SKY_API_KEY;
-
 export default {
   namespaced: true,
   state: {
@@ -22,10 +18,15 @@ export default {
   },
   actions: {
     getForecast: async ({ commit }, { latitude, longitude }) => {
-      const { data } = await Axios.get(`${baseUrl}/${darkSkyApiKey}/${latitude},${longitude}`);
-
+      const { data } = await Axios({
+        method: 'POST',
+        url: '/.netlify/functions/darksky',
+        data: {
+          latitude,
+          longitude,
+        },
+      });
       commit('SET_FORECAST', data);
-
       console.log(data);
     },
   },

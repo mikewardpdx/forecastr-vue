@@ -6,8 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start:lambda": "netlify-lambda serve functions",
-    "build:lambda": "netlify-lambda build functions"
+    "build:lambda": "netlify-lambda build functions",
+    "start:lambda": "netlify-lambda serve functions"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -24,6 +24,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "netlify-lambda": "^1.4.2",
+    "vue-cli-plugin-netlify-lambda": "^0.1.0",
     "vue-template-compiler": "^2.5.21"
   }
 }
